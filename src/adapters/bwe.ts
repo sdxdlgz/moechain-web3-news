@@ -16,9 +16,11 @@ export class BWEAdapter extends RssAdapter {
 
   adapt(feed: RssOutput<any>, sourceName: string): NewsItem[] {
     feed.items = feed.items.map((item: RssItem) => {
+      const title = this.convertHtmlToMarkdown(item.title || '');
       return {
         ...item,
-        title: this.convertHtmlToMarkdown(item.title || ''),
+        title,
+        content: title
       };
     });
 
