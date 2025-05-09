@@ -1,0 +1,44 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Build for Linux
+        run: bun run build:linux
+
+      - name: Build for macOS
+        run: bun run build:mac
+
+      - name: Build for Windows
+        run: bun run build:win
+
+      - name: Create Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: Release ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+          files: |
+            moechain-web3-news-linux
+            moechain-web3-news-mac
+            moechain-web3-news-win
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 

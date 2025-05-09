@@ -1,0 +1,23 @@
+{
+  "name": "moechain-news",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --watch src/index.ts",
+    "start": "bunx pm2 start 'bun run src/index.ts' --name moechain-web3-news",
+    "build:linux": "bun build --compile --target=bun-linux-x64 --minify  --bytecode ./src/index.ts --outfile moechain-web3-news-linux",
+    "build:mac": "bun build --compile --target=bun-macos-x64 --minify  --bytecode ./src/index.ts --outfile moechain-web3-news-mac",
+    "build:win": "bun build --compile --target=bun-windows-x64 --minify  --bytecode ./src/index.ts --outfile moechain-web3-news-win"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "loglevel": "^1.9.2",
+    "rss-parser": "^3.13.0"
+  }
+}
