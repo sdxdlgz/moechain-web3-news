@@ -8,7 +8,7 @@ class BunNewsService extends NewsService {
   private isRunning = false;
 
   constructor() {
-    const pushService = new MoePushService(process.env.MOEPUSH_URL);
+    const pushService = new MoePushService(Bun.env.MOEPUSH_URL);
     const filterService = new SQLiteNewsFilter();
     
     super(pushService, filterService);
@@ -36,7 +36,7 @@ class BunNewsService extends NewsService {
       
       await this.fetchAndPushNews();
 
-      await new Promise(resolve => setTimeout(resolve, intervalMs));
+      await Bun.sleep(intervalMs);
     }
   }
 }
