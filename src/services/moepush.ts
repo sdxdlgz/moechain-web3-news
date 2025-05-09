@@ -1,10 +1,10 @@
 import type { NewsItem, PushService } from '../types';
 
-export class MoePushService implements PushService {
+export default class MoePushService implements PushService {
   private url: string;
 
-  constructor() {
-    this.url = process.env.MOEPUSH_URL || '';
+  constructor(moepushUrl?: string) {
+    this.url = moepushUrl || '';
     
     if (!this.url) {
       throw new Error('MOEPUSH_URL 未配置');

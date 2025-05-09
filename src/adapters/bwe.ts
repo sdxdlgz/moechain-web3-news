@@ -8,6 +8,7 @@ export class BWEAdapter extends RssAdapter {
 
     // 替换换行标签
     markdownContent = markdownContent.replace(/<br\s*\/?>/gi, '\n\n')
+                      .replace(/————————————/gi, '\n\n时间:\n\n')
                       .replace(/source:/gi, '\n\n来源:\n\n');
 
     return markdownContent.trim();

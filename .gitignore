@@ -175,3 +175,7 @@ dist
 .DS_Store
 
 *.db
+
+.wrangler
+wrangler.toml
+wrangler.json
