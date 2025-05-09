@@ -37,8 +37,8 @@ jobs:
           draft: false
           prerelease: false
           files: |
-            moechain-web3-news-linux
-            moechain-web3-news-mac
-            moechain-web3-news-win
+            moechain-web3-news-linux-x64
+            moechain-web3-news-mac-x64
+            moechain-web3-news-win-x64.exe
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
