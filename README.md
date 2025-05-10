@@ -12,6 +12,7 @@
 - 支持使用Docker容器部署
 
 ## 预览图
+![terminal](https://pic.otaku.ren/20250510/AgAD2xkAAjOK-FQ.png)
 ![dingding](https://pic.otaku.ren/20250510/AgADmBkAAjOK-FQ.png)
 
 ## 准备工作
