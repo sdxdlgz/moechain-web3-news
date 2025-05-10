@@ -9,6 +9,7 @@
 - 使用 MoePush (https://moepush.app) 进行新闻推送
 - 可扩展的架构，方便添加更多新闻源
 - 支持部署到 VPS 或 Cloudflare Workers 运行
+- 支持使用Docker容器部署
 
 ## 准备工作
 
@@ -22,7 +23,7 @@
 ## 安装
 
 ```bash
-git clone git@github.com:MoeChainTools/moechain-web3-news.git
+git clone https://github.com/MoeChainTools/moechain-web3-news
 cd moechain-web3-news
 
 bun install
@@ -71,6 +72,40 @@ bun run build:mac
 # 构建 Windows 版本
 bun run build:win
 ```
+
+### Docker部署
+
+#### 使用预构建的镜像
+
+```bash
+# 拉取最新的Docker镜像
+docker pull MoeChainTools/moechain-web3-news:latest
+
+# 运行Docker容器
+docker run -d \
+  -e POLL_INTERVAL=10 \
+  -e MOEPUSH_URL=https://moepush.app/api/push/{ID} \
+  -v /path/to/data:/app \
+  --name moechain-web3-news \
+  MoeChainTools/moechain-web3-news:latest
+```
+
+#### 环境变量
+
+Docker镜像支持以下环境变量：
+
+- `POLL_INTERVAL`: 轮询间隔（秒），默认为10
+- `MOEPUSH_URL`: MoePush推送URL
+
+#### 持久化存储
+
+容器使用 `/app` 卷存储数据。为保证数据持久化，建议挂载本地目录到该卷：
+
+```bash
+-v /path/to/data:/app
+```
+
+这将会将数据库文件保存在宿主机的 `/path/to/data` 目录中，避免容器重启导致数据丢失。
 
 ### 存储
 
