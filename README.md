@@ -79,7 +79,7 @@ bun run build:win
 
 ```bash
 # 拉取最新的Docker镜像
-docker pull MoeChainTools/moechain-web3-news:latest
+docker pull beilunyang/moechain-web3-news:latest
 
 # 运行Docker容器
 docker run -d \
