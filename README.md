@@ -11,6 +11,9 @@
 - 支持部署到 VPS 或 Cloudflare Workers 运行
 - 支持使用Docker容器部署
 
+## 预览图
+![dingding](https://pic.otaku.ren/20250510/AgADmBkAAjOK-FQ.png)
+
 ## 准备工作
 
 ### 获取 MoePush 推送URL
