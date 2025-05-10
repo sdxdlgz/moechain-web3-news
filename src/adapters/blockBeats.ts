@@ -35,15 +35,12 @@ export class BlockBeatsAdapter implements NewsAdapter<Flash[]> {
 
       // 移除图片URL中的查询参数，并构建图片Markdown
       const cleanImageUrl = item.pic ? this.stripQueryParams(item.pic) : ''
-      const imageMarkdown = cleanImageUrl ? `![图片](${cleanImageUrl})\n\n` : ''
-
-      // 构建文本内容，图片放在最前面，并进行判空
-      const content = `${imageMarkdown}### ${item.title}\n${markdownContent}`
 
       return {
         id: `${sourceName}:${item.id}`,
         title: item.title,
-        content,
+        content: markdownContent,
+        image: cleanImageUrl || '',
         link: item.link || item.url,
         pubDate,
         source: sourceName

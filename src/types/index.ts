@@ -5,6 +5,7 @@ export interface NewsItem {
   link: string;
   pubDate: Date;
   source: string;
+  image: string;
 }
 
 export interface NewsSource {

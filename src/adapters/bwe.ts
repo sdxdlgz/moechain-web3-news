@@ -19,6 +19,7 @@ export class BWEAdapter extends RssAdapter {
       const title = this.convertHtmlToMarkdown(item.title || '');
       return {
         ...item,
+        image: '',
         title,
         content: title
       };
