@@ -10,7 +10,12 @@ export class BWENewsSource extends BaseNewsSource {
   private adapter = new BWEAdapter();
 
   async fetchSourceData(): Promise<Parser.Output<any>> {
-    return await this.parser.parseURL(this.url);
+    const response = await fetch(this.url);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch source data: ${response.statusText}`);
+    }
+    const text = await response.text();
+    return this.parser.parseString(text);
   }
   
   adaptSourceData(sourceData: Parser.Output<any>): NewsItem[] {
