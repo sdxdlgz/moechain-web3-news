@@ -4,16 +4,16 @@
   "compatibility_date": "2025-05-05",
   "compatibility_flags": ["nodejs_compat"],
   "triggers": {
-    "crons": ["*/1 * * * *"]
+    "crons": ["*/1 * * * *"]  // 每1分钟执行一次
   },
   "kv_namespaces": [
     {
       "binding": "MOECHAIN_WEB3_NEWS_KV",
-      "id": ""
+      "id": "cf1363234e5a456eadc68dcd27edd26c"
     }
   ],
   "vars": {
-    "MOEPUSH_URL": "",
+    "MOEPUSH_URL": "https://moepush.app/api/push/o2gpTVatuN6fGkgt",
     "LOG_LEVEL": "info"
   }
-} 
+}
