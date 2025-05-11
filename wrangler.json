@@ -1,0 +1,19 @@
+{
+  "name": "moechain-web3-news",
+  "main": "src/worker.ts",
+  "compatibility_date": "2025-05-05",
+  "compatibility_flags": ["nodejs_compat"],
+  "triggers": {
+    "crons": ["*/1 * * * *"]
+  },
+  "kv_namespaces": [
+    {
+      "binding": "MOECHAIN_WEB3_NEWS_KV",
+      "id": ""
+    }
+  ],
+  "vars": {
+    "MOEPUSH_URL": "",
+    "LOG_LEVEL": "info"
+  }
+} 
